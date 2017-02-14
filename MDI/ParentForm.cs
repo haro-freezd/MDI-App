@@ -40,6 +40,7 @@ namespace MDI
 
         private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = "New Image";
             saveFileDialog1.Filter = saveFileFilters;
             saveFileDialog1.FilterIndex = 2;
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -48,14 +49,16 @@ namespace MDI
                 if((child as ChildForm).Image != null)
                 {
                     (child as ChildForm).Image.Save(saveFileDialog1.FileName);
-                } else if((child as ChildForm).Size != null)
+                    (child as ChildForm).Saved = true;
+                } else if((child as ChildForm).ImageSize != null)
                 {
-                    Size size = (child as ChildForm).Size;
+                    Size size = (child as ChildForm).ImageSize;
                     Bitmap bit = new Bitmap(size.Width, size.Height);
                     Graphics g = Graphics.FromImage(bit);
                     g.FillRectangle(Brushes.Blue, 0, 0, size.Width, size.Height);
                     bit.Save(saveFileDialog1.FileName);
                     bit.Dispose();
+                    (child as ChildForm).Saved = true;
                 }
                 
             }
@@ -68,15 +71,21 @@ namespace MDI
             {
                 ChildForm child = new ChildForm();
                 child.MdiParent = this;
-                child.Size = newImage.getSelection();
+                child.ImageSize = newImage.getSelection();
                 child.Show();
             }
             enableSave();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
+            if((this.ActiveMdiChild as ChildForm).Saved)
+            {
 
+            }else
+            {
+                saveASToolStripMenuItem_Click(sender, e);
+            }
         }
 
         public void enableSave()

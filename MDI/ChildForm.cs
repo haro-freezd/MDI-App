@@ -18,10 +18,22 @@ namespace MDI
         }
 
         private Image childImage;
-
+        private bool saved;
         private Size _size;
 
-        public Size Size
+        public bool Saved
+        {
+            get
+            {
+                return saved;
+            }
+            set
+            {
+                saved = value;
+            }
+        }
+
+        public Size ImageSize
         {
             get
             {
