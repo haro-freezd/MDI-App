@@ -54,7 +54,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(897, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(897, 44);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,7 +68,7 @@
             this.saveASToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -90,6 +90,7 @@
             this.openFromWebToolStripMenuItem.Name = "openFromWebToolStripMenuItem";
             this.openFromWebToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.openFromWebToolStripMenuItem.Text = "Open from Web";
+            this.openFromWebToolStripMenuItem.Click += new System.EventHandler(this.openFromWebToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 

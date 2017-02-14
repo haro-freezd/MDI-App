@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
 
 namespace MDI
 {
@@ -46,6 +48,26 @@ namespace MDI
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void openFromWebToolStripMenuItem_Click(object sender, EventArgs e) {
+            WebForm webform = new MDI.WebForm();
+            
+            if (webform.ShowDialog() == DialogResult.OK) {
+                WebRequest request = WebRequest.Create(webform.GetURL());
+
+                using (WebResponse response = request.GetResponse())
+
+                using (Stream stream = response.GetResponseStream()) {
+                    
+                    ChildForm child = new ChildForm();
+                    child.MdiParent = this;
+                    child.Text = openFileDialog1.FileName;
+                    child.Image = new Bitmap(Image.FromStream(stream));
+                    child.Show(); 
+                }
+
+            }
         }
     }
 }
