@@ -22,20 +22,35 @@ namespace MDI
         }
 
         private Image childImage;
+        private bool saved;
         private Size _size;
 
         public Image Image {
             get {
                 return childImage;
             }
+
             set {
                 childImage = value;
-                this.AutoScrollMinSize = childImage.Size;
             }
         }
 
-        public Size Size {
-            get {
+        public bool Saved
+        {
+            get
+            {
+                return saved;
+            }
+            set
+            {
+                saved = value;
+            }
+        }
+
+        public Size ImageSize
+        {
+            get
+            {
                 return _size;
             }
             set {
