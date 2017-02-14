@@ -138,7 +138,6 @@ namespace MDI
             }
         }
 
-
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             if((this.ActiveMdiChild as ChildForm).Saved)
