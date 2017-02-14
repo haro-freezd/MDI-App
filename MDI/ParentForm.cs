@@ -36,7 +36,7 @@ namespace MDI
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewDialog newImage = new NewDialog();
+            NewImageForm newImage = new NewImageForm();
             if(newImage.ShowDialog() == DialogResult.OK)
             {
 

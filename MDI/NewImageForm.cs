@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MDI
 {
-    public partial class NewDialog : Form
+    public partial class NewImageForm : Form
     {
-        public NewDialog()
+        public NewImageForm()
         {
             InitializeComponent();
         }

@@ -53,7 +53,8 @@
             this.windowsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(282, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(897, 42);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,34 +68,34 @@
             this.saveASToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openFromFileToolStripMenuItem
             // 
             this.openFromFileToolStripMenuItem.Name = "openFromFileToolStripMenuItem";
-            this.openFromFileToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.openFromFileToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.openFromFileToolStripMenuItem.Text = "Open from File";
             this.openFromFileToolStripMenuItem.Click += new System.EventHandler(this.openFromFileToolStripMenuItem_Click);
             // 
             // openFromWebToolStripMenuItem
             // 
             this.openFromWebToolStripMenuItem.Name = "openFromWebToolStripMenuItem";
-            this.openFromWebToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.openFromWebToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.openFromWebToolStripMenuItem.Text = "Open from Web";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -102,14 +103,14 @@
             // 
             this.saveASToolStripMenuItem.Enabled = false;
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
-            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.saveASToolStripMenuItem.Text = "Save As";
             this.saveASToolStripMenuItem.Click += new System.EventHandler(this.saveASToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(287, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // windowsToolStripMenuItem
@@ -119,25 +120,25 @@
             this.tileHorizontalToolStripMenuItem,
             this.tileVerticalToolStripMenuItem});
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
             this.windowsToolStripMenuItem.Text = "Windows";
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
             this.cascadeToolStripMenuItem.Text = "Cascade";
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
             this.tileHorizontalToolStripMenuItem.Text = "Tile Horizontal";
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
             this.tileVerticalToolStripMenuItem.Text = "Tile Vertical";
             // 
             // openFileDialog1
@@ -146,12 +147,13 @@
             // 
             // MDIApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(897, 581);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MDIApp";
             this.Text = "MDI Application";
             this.menuStrip1.ResumeLayout(false);

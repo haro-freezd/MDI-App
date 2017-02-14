@@ -1,6 +1,6 @@
 ﻿namespace MDI
 {
-    partial class NewDialog
+    partial class NewImageForm
     {
         /// <summary>
         /// Required designer variable.
