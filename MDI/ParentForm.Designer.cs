@@ -89,6 +89,7 @@
             this.openFromWebToolStripMenuItem.Name = "openFromWebToolStripMenuItem";
             this.openFromWebToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.openFromWebToolStripMenuItem.Text = "Open from Web";
+            this.openFromWebToolStripMenuItem.Click += new System.EventHandler(this.openFromWebToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 

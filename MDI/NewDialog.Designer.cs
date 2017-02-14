@@ -45,6 +45,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "640 x 460";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.sizeRadioButton_ClickedChange);
             // 
             // radioButton2
             // 
@@ -56,7 +57,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "800 x 600";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.sizeRadioButton_ClickedChange);
             // 
             // radioButton3
             // 
@@ -68,6 +69,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "1024 x 768";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.sizeRadioButton_ClickedChange);
             // 
             // button1
             // 

@@ -17,9 +17,25 @@ namespace MDI
             InitializeComponent();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
+        private int sizeSelected;
 
+        private void sizeRadioButton_ClickedChange(object sender, EventArgs e)
+        {
+            if (sender.ToString().Equals("640 x 460"))
+                sizeSelected = 1;
+            else if (sender.ToString().Equals("800 x 600"))
+                sizeSelected = 2;
+            else
+                sizeSelected = 3;
+        }
+
+        public Size getSelection()
+        {
+            if (sizeSelected == 1)
+                return new Size(640, 460);
+            else if (sizeSelected == 2)
+                return new Size(800, 600);
+            return new Size(1024, 768);
         }
     }
 }
