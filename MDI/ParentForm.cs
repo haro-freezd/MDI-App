@@ -18,15 +18,20 @@ namespace MDI
         {
             InitializeComponent();
         }
+        //TODO: File filters
+        private const string fileFilters = "Image Files(*.BMP;*.JPG;*.JPEG;*.GIF)|*JPEG;*.BMP;*.JPG;*.GIF";
+        //TODO: Child window counter        
 
         private void openFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = fileFilters;
+            openFileDialog1.FilterIndex = 2;
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 ChildForm child = new ChildForm();
                 child.MdiParent = this;
                 child.Text = openFileDialog1.FileName;
-                child.Image = new Bitmap(openFileDialog1.FileName);
+                child.Image = Image.FromFile(openFileDialog1.FileName);
                 child.Show();
             }
         }
@@ -68,6 +73,11 @@ namespace MDI
                 }
 
             }
+        }
+
+        private void openFromWebToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
