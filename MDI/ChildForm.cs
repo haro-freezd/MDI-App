@@ -8,45 +8,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace MDI
 {
-    public partial class ChildForm : Form
-    {
+    /// <summary>
+    /// Child form which contains the image from local, web, own
+    /// </summary>
+    public partial class ChildForm : Form {
+        
         public ChildForm()
         {
             InitializeComponent();
         }
 
         private Image childImage;
-
         private Size _size;
 
-        public Size Size
-        {
-            get
-            {
-                return _size;
-            }
-            set
-            {
-                _size = value;
-                this.AutoScrollMinSize = _size;
-            }
-        }
-
-        public Image Image
-        {
-            get
-            {
+        public Image Image {
+            get {
                 return childImage;
             }
-            set
-            {
+            set {
                 childImage = value;
                 this.AutoScrollMinSize = childImage.Size;
             }
         }
 
+        public Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                this.AutoScrollMinSize = _size;
+            }
+        }
+
+
+        /// <summary>
+        /// Draws the image from the user selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChildForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphicsObject = e.Graphics;
@@ -58,6 +61,11 @@ namespace MDI
             }                       
         }
 
+        /// <summary>
+        /// Send this to parent form when it's closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChildForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form parent = this.MdiParent;            

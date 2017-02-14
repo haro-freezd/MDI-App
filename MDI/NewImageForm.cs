@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace MDI
 {
+    /// <summary>
+    /// Dialog for creating a new image
+    /// </summary>
     public partial class NewImageForm : Form
     {
         public NewImageForm()
@@ -19,6 +22,11 @@ namespace MDI
 
         private int sizeSelected;
 
+        /// <summary>
+        /// Assigns the size to the sizeSelected for user's choice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sizeRadioButton_ClickedChange(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true)
@@ -29,6 +37,10 @@ namespace MDI
                 sizeSelected = 3;
         }
 
+        /// <summary>
+        /// Gets the size that user selected
+        /// </summary>
+        /// <returns></returns>
         public Size getSelection()
         {
             if (sizeSelected == 1)
