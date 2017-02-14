@@ -138,28 +138,19 @@ namespace MDI
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            if((this.ActiveMdiChild as ChildForm).Saved)
-            {
-                ChildForm child = new ChildForm();
-                child.MdiParent = this;
-                child.ImageSize = newImage.getSelection();
-                child.Show();
-            }
-            enableSave();
-        }
+        /// <summary>
+        /// Saves the image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
+            if ((this.ActiveMdiChild as ChildForm).Saved) {
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            if((this.ActiveMdiChild as ChildForm).Saved)
-            {
-
-            }else
-            {
+            } else {
                 saveASToolStripMenuItem_Click(sender, e);
             }
         }
+
 
         /// <summary>
         /// Enable the both save and save as button
