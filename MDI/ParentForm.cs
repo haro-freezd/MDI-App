@@ -19,7 +19,14 @@ namespace MDI
 
         private void openFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ChildForm child = new ChildForm();
+                child.MdiParent = this;
+                child.Text = openFileDialog1.FileName;
+                child.Image = new Bitmap(openFileDialog1.FileName);
+                child.Show();
+            }
         }
 
         private void saveASToolStripMenuItem_Click(object sender, EventArgs e)

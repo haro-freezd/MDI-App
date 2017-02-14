@@ -92,6 +92,7 @@
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.saveToolStripMenuItem.Text = "Save";
@@ -99,6 +100,7 @@
             // 
             // saveASToolStripMenuItem
             // 
+            this.saveASToolStripMenuItem.Enabled = false;
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
             this.saveASToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.saveASToolStripMenuItem.Text = "Save As";

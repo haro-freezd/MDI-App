@@ -33,7 +33,8 @@ namespace MDI
 
         private void ChildForm_Paint(object sender, PaintEventArgs e)
         {
-            
+            Graphics graphicsObject = e.Graphics;
+            graphicsObject.DrawImage(childImage, 0, 0);
         }
     }
 }
