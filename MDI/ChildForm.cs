@@ -53,7 +53,14 @@ namespace MDI
             if (childImage != null)
                 graphicsObject.DrawImage(childImage, 0, 0);
             else if (_size != null)
-                graphicsObject.FillRectangle(Brushes.Blue, 0, 0, _size.Width, _size.Height);        
+            {
+                graphicsObject.FillRectangle(Brushes.Blue, 0, 0, _size.Width, _size.Height);                
+            }                       
+        }
+
+        private void ChildForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form parent = this.MdiParent;            
         }
     }
 }

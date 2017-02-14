@@ -19,7 +19,8 @@ namespace MDI
             InitializeComponent();
         }
         //TODO: File filters
-        private const string fileFilters = "Image Files(*.BMP;*.JPG;*.JPEG;*.GIF)|*JPEG;*.BMP;*.JPG;*.GIF";
+        private const string fileFilters = "Image Files(*.BMP;*.JPG;*.JPEG;*.GIF;*.PNG)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG";
+        private const string saveFileFilters = "Bitmap Image (.bmp)|*.bmp|Gif Image (.gif)|*.gif|JPEG Image (.jpeg)|*.jpeg|Png Image (.png)|*.png";
         //TODO: Child window counter        
 
         private void openFromFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,11 +35,30 @@ namespace MDI
                 child.Image = Image.FromFile(openFileDialog1.FileName);
                 child.Show();
             }
+            enableSave();
         }
 
         private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            saveFileDialog1.Filter = saveFileFilters;
+            saveFileDialog1.FilterIndex = 2;
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Form child = ActiveMdiChild;
+                if((child as ChildForm).Image != null)
+                {
+                    (child as ChildForm).Image.Save(saveFileDialog1.FileName);
+                } else if((child as ChildForm).Size != null)
+                {
+                    Size size = (child as ChildForm).Size;
+                    Bitmap bit = new Bitmap(size.Width, size.Height);
+                    Graphics g = Graphics.FromImage(bit);
+                    g.FillRectangle(Brushes.Blue, 0, 0, size.Width, size.Height);
+                    bit.Save(saveFileDialog1.FileName);
+                    bit.Dispose();
+                }
+                
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,11 +71,26 @@ namespace MDI
                 child.Size = newImage.getSelection();
                 child.Show();
             }
+            enableSave();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void enableSave()
+        {
+            if(this.MdiChildren.Length > 0)
+            {
+                this.saveASToolStripMenuItem.Enabled = true;
+                this.saveToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                this.saveASToolStripMenuItem.Enabled = false;
+                this.saveToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void openFromWebToolStripMenuItem_Click(object sender, EventArgs e) {

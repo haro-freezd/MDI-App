@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(282, 253);
             this.Name = "ChildForm";
             this.Text = "New Image";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChildForm_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildForm_Paint);
             this.ResumeLayout(false);
 
