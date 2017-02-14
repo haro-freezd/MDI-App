@@ -8,3 +8,4 @@ c:\users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.cspro
 c:\users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.exe
 c:\users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.pdb
 c:\users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.ChildForm.resources
+c:\users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.NewDialog.resources

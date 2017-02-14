@@ -36,7 +36,11 @@ namespace MDI
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NewDialog newImage = new NewDialog();
+            if(newImage.ShowDialog() == DialogResult.OK)
+            {
 
+            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
