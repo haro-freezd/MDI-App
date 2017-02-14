@@ -142,6 +142,18 @@ namespace MDI
         {            
             if((this.ActiveMdiChild as ChildForm).Saved)
             {
+                ChildForm child = new ChildForm();
+                child.MdiParent = this;
+                child.ImageSize = newImage.getSelection();
+                child.Show();
+            }
+            enableSave();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            if((this.ActiveMdiChild as ChildForm).Saved)
+            {
 
             }else
             {

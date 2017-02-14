@@ -36,6 +36,19 @@ namespace MDI
                 saved = value;
             }
         }
+
+        public Size Size
+        {
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                _size = value;
+                this.AutoScrollMinSize = _size;
+            }
+        }
         
         public Size ImageSize
         {
