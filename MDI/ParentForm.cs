@@ -46,7 +46,10 @@ namespace MDI
             NewImageForm newImage = new NewImageForm();
             if(newImage.ShowDialog() == DialogResult.OK)
             {
-
+                ChildForm child = new ChildForm();
+                child.MdiParent = this;
+                child.Size = newImage.getSelection();
+                child.Show();
             }
         }
 
@@ -73,11 +76,6 @@ namespace MDI
                 }
 
             }
-        }
-
-        private void openFromWebToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

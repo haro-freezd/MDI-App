@@ -21,11 +21,11 @@ namespace MDI
 
         private void sizeRadioButton_ClickedChange(object sender, EventArgs e)
         {
-            if (sender.ToString().Equals("640 x 460"))
+            if (radioButton1.Checked == true)
                 sizeSelected = 1;
-            else if (sender.ToString().Equals("800 x 600"))
+            else if (radioButton2.Checked == true)
                 sizeSelected = 2;
-            else
+            else 
                 sizeSelected = 3;
         }
 

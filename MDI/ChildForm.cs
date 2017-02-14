@@ -19,6 +19,21 @@ namespace MDI
 
         private Image childImage;
 
+        private Size _size;
+
+        public Size Size
+        {
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                _size = value;
+                this.AutoScrollMinSize = _size;
+            }
+        }
+
         public Image Image
         {
             get
@@ -35,7 +50,10 @@ namespace MDI
         private void ChildForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphicsObject = e.Graphics;
-            graphicsObject.DrawImage(childImage, 0, 0);            
+            if (childImage != null)
+                graphicsObject.DrawImage(childImage, 0, 0);
+            else if (_size != null)
+                graphicsObject.FillRectangle(Brushes.Blue, 0, 0, _size.Width, _size.Height);        
         }
     }
 }
