@@ -68,13 +68,13 @@ namespace MDI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void openFromFileToolStripMenuItem_Click(object sender, EventArgs e) {
-            openFileDialog1.Filter = fileFilters;
-            openFileDialog1.FilterIndex = 2;
-            if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+            openFileDialog.Filter = fileFilters;
+            openFileDialog.FilterIndex = 2;
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
                 ChildForm child = new ChildForm();
                 child.MdiParent = this;
-                child.Text = openFileDialog1.FileName;
-                child.Image = Image.FromFile(openFileDialog1.FileName);
+                child.Text = openFileDialog.FileName;
+                child.Image = Image.FromFile(openFileDialog.FileName);
                 child.Show();
             }
             enableSave();
@@ -97,7 +97,7 @@ namespace MDI
 
                     ChildForm child = new ChildForm();
                     child.MdiParent = this;
-                    child.Text = openFileDialog1.FileName;
+                    child.Text = openFileDialog.FileName;
                     child.Image = new Bitmap(Image.FromStream(stream));
                     child.Show();
                 }
@@ -113,16 +113,16 @@ namespace MDI
         /// <param name="e"></param>
         private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = "New Image";
-            saveFileDialog1.Filter = saveFileFilters;
-            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog.FileName = "New Image";
+            saveFileDialog.Filter = saveFileFilters;
+            saveFileDialog.FilterIndex = 2;
 
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Form child = ActiveMdiChild;
                 if((child as ChildForm).Image != null)
                 {
-                    (child as ChildForm).Image.Save(saveFileDialog1.FileName);
+                    (child as ChildForm).Image.Save(saveFileDialog.FileName);
                     (child as ChildForm).Saved = true;
                 } else if((child as ChildForm).ImageSize != null)
                 {
@@ -130,7 +130,7 @@ namespace MDI
                     Bitmap bit = new Bitmap(size.Width, size.Height);
                     Graphics g = Graphics.FromImage(bit);
                     g.FillRectangle(Brushes.Blue, 0, 0, size.Width, size.Height);
-                    bit.Save(saveFileDialog1.FileName);
+                    bit.Save(saveFileDialog.FileName);
                     bit.Dispose();
                     (child as ChildForm).Saved = true;
                 }

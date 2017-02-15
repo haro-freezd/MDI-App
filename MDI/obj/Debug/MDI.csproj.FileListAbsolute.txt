@@ -22,3 +22,15 @@ C:\Users\dongwon\Documents\Visual Studio 2015\Projects\Lab06\MDI-App\MDI\obj\Deb
 C:\Users\dongwon\Documents\Visual Studio 2015\Projects\Lab06\MDI-App\MDI\obj\Debug\MDI.WebForm.resources
 C:\Users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.NewImageForm.resources
 C:\Users\panda\documents\visual studio 2015\Projects\MDI\MDI\obj\Debug\MDI.WebForm.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\bin\Debug\MDI.exe.config
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.exe
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.pdb
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\bin\Debug\MDI.exe
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\bin\Debug\MDI.pdb
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.csprojResolveAssemblyReference.cache
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.NewImageForm.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.MDIApp.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.ChildForm.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.Properties.Resources.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.WebForm.resources
+C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.csproj.GenerateResource.Cache
