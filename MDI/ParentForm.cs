@@ -22,10 +22,12 @@ using System.Drawing.Imaging;
 ///                             - New file
 ///                             - Open from file / Web
 ///                             - Save, Save As
+///                             - Exit
 ///                             - Allignment of child windows
 ///                                 - Cascade
 ///                                 - Tile Horizontal
 ///                                 - Tile Vertical
+///                             
 /// </summary>
 namespace MDI {
     /// <summary>
@@ -75,6 +77,7 @@ namespace MDI {
                 child.MdiParent = this;
                 child.Text = openFileDialog.FileName;
                 child.Image = Image.FromFile(openFileDialog.FileName);
+                child.Saved = true;
                 child.Show();
             }
             enableSave();
@@ -224,6 +227,28 @@ namespace MDI {
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e) {
             enableSave();
+        }
+
+        /// <summary>
+        /// Prompts the user to save the images opened in MDI child forms if the images are not already saved. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExitForm exit = new ExitForm();
+            foreach (Form form in MdiChildren)
+            {
+                if (!((form as ChildForm).Saved))
+                {
+                    if (exit.ShowDialog() == DialogResult.OK)
+                    {                   
+                        saveASToolStripMenuItem_Click(sender, e);
+                        form.Dispose();
+                    }
+                }
+            }
+            this.Close();
         }
     }
 }

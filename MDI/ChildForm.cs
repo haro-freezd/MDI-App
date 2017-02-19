@@ -87,29 +87,5 @@ namespace MDI
                 graphicsObject.FillRectangle(Brushes.Blue, 0, 0, _size.Width, _size.Height);                
             }                       
         }
-
-        ///// <summary>
-        ///// Send this to parent form when it's closed
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void ChildForm_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-            
-        //    Form parent = this.MdiParent;
-
-        //    if(MDIApp.Instance != null) {
-        //        MDIApp.Instance.enableSave();
-        //    }
-        //}
-
-        //private void ChildForm_FormClosing(object sender, FormClosingEventArgs e) {
-
-        //    Form parent = this.MdiParent;
-
-        //    if (MDIApp.Instance != null) {
-        //        MDIApp.Instance.enableSave();
-        //    }
-        //}
     }
 }

@@ -34,3 +34,4 @@ C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.Child
 C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.Properties.Resources.resources
 C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.WebForm.resources
 C:\Users\kim\Documents\Visual Studio 2015\Projects\Lab06\MDI\obj\Debug\MDI.csproj.GenerateResource.Cache
+C:\Users\panda\Documents\Visual Studio 2015\Projects\MDI\MDI\obj\Debug\MDI.ExitForm.resources

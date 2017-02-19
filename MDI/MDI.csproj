@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExitForm.Designer.cs">
+      <DependentUpon>ExitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="WebForm.Designer.cs">
       <DependentUpon>WebForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ExitForm.resx">
+      <DependentUpon>ExitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewImageForm.resx">
       <DependentUpon>NewImageForm.cs</DependentUpon>
     </EmbeddedResource>
