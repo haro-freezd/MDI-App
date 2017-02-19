@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Drawing.Imaging;
 
 /// <summary>
 /// Purpose:    Lab06 - Grpahic file viewer, loader and saver.
@@ -26,26 +27,25 @@ using System.IO;
 ///                                 - Tile Horizontal
 ///                                 - Tile Vertical
 /// </summary>
-namespace MDI
-{
+namespace MDI {
     /// <summary>
     /// Parent form for the image create, view, load, save
     /// </summary>
-    public partial class MDIApp : Form
-    {
+    public partial class MDIApp : Form {
         //TODO: File filters
         private const string fileFilters = "Image Files(*.BMP;*.JPG;*.JPEG;*.GIF;*.PNG)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG";
         private const string saveFileFilters = "Bitmap Image (.bmp)|*.bmp|Gif Image (.gif)|*.gif|JPEG Image (.jpeg)|*.jpeg|Png Image (.png)|*.png";
         //TODO: Child window counter        
+        public static MDIApp Instance { get; set; }
+
 
         /// <summary>
         /// Constructor of the app
         /// </summary>
-        public MDIApp()
-        {
+        public MDIApp() {
             InitializeComponent();
+            Instance = this;
         }
-
         /// <summary>
         /// Creates a new image from another diagram
         /// </summary>
@@ -83,7 +83,7 @@ namespace MDI
         /// <summary>
         /// Opens the file from Web url
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender"></pasram>
         /// <param name="e"></param>
         private void openFromWebToolStripMenuItem_Click(object sender, EventArgs e) {
             WebForm webform = new MDI.WebForm();
@@ -111,21 +111,23 @@ namespace MDI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveFileDialog.FileName = "New Image";
+        private void saveASToolStripMenuItem_Click(object sender, EventArgs e) {
+
+            Form child = ActiveMdiChild;
+
+            if ((child as ChildForm) == null) {
+                enableSave();
+            }
+            
+            saveFileDialog.FileName = (child as ChildForm).Text;
             saveFileDialog.Filter = saveFileFilters;
             saveFileDialog.FilterIndex = 2;
 
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                Form child = ActiveMdiChild;
-                if((child as ChildForm).Image != null)
-                {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                if ((child as ChildForm).Image != null) {
                     (child as ChildForm).Image.Save(saveFileDialog.FileName);
                     (child as ChildForm).Saved = true;
-                } else if((child as ChildForm).ImageSize != null)
-                {
+                } else if ((child as ChildForm).ImageSize != null) {
                     Size size = (child as ChildForm).ImageSize;
                     Bitmap bit = new Bitmap(size.Width, size.Height);
                     Graphics g = Graphics.FromImage(bit);
@@ -134,8 +136,9 @@ namespace MDI
                     bit.Dispose();
                     (child as ChildForm).Saved = true;
                 }
-                
             }
+
+            enableSave();
         }
 
         /// <summary>
@@ -144,31 +147,52 @@ namespace MDI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
-            if ((this.ActiveMdiChild as ChildForm).Saved) {
+            try {
+                if ((this.ActiveMdiChild as ChildForm).Saved) {
+                    enableSave();
+                } else {
+                    String fileName = (this.ActiveMdiChild as ChildForm).Text;
 
-            } else {
-                saveASToolStripMenuItem_Click(sender, e);
+                    if (fileName == "New Image")
+                        saveASToolStripMenuItem_Click(sender, e);
+                    else {
+                        try {
+                            // save to a memorystream
+                            MemoryStream mStream = new MemoryStream();
+                            (this.ActiveMdiChild as ChildForm).Image.Save(mStream, (this.ActiveMdiChild as ChildForm).Image.RawFormat);
+
+                            // dispose old image
+                            (this.ActiveMdiChild as ChildForm).Image.Dispose();
+
+                            // save new image to same filename
+                            Image newImage = Image.FromStream(mStream);
+                            newImage.Save(fileName);
+
+                        } catch (Exception ex) {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
             }
+            enableSave();
         }
 
 
         /// <summary>
-        /// Enable the both save and save as button
+        /// Enable or Disable the both save and save as button
         /// </summary>
-        public void enableSave()
-        {
-            if(this.MdiChildren.Length > 0)
-            {
+        public void enableSave() {
+            if (this.MdiChildren.Length > 0) {
                 this.saveASToolStripMenuItem.Enabled = true;
                 this.saveToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
+            } else {
                 this.saveASToolStripMenuItem.Enabled = false;
                 this.saveToolStripMenuItem.Enabled = false;
             }
         }
-        
+
         /// <summary>
         /// Arrange child windows in cascade
         /// </summary>
@@ -195,6 +219,11 @@ namespace MDI
         /// <param name="e"></param>
         private void tileVerticalToolStripMenuItem_Click(object sender, EventArgs e) {
             this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
+        }
+        
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e) {
+            enableSave();
         }
     }
 }

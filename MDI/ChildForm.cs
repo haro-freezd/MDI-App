@@ -24,7 +24,7 @@ namespace MDI
         private Image childImage;
         private bool saved;
         private Size _size;
-
+        
         public bool Saved
         {
             get
@@ -88,14 +88,28 @@ namespace MDI
             }                       
         }
 
-        /// <summary>
-        /// Send this to parent form when it's closed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ChildForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form parent = this.MdiParent;            
-        }
+        ///// <summary>
+        ///// Send this to parent form when it's closed
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void ChildForm_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+            
+        //    Form parent = this.MdiParent;
+
+        //    if(MDIApp.Instance != null) {
+        //        MDIApp.Instance.enableSave();
+        //    }
+        //}
+
+        //private void ChildForm_FormClosing(object sender, FormClosingEventArgs e) {
+
+        //    Form parent = this.MdiParent;
+
+        //    if (MDIApp.Instance != null) {
+        //        MDIApp.Instance.enableSave();
+        //    }
+        //}
     }
 }
